@@ -3,7 +3,7 @@ from flask import Flask, Response
 import time
 
 # Camera index and cascade file
-CAMERA_INDEX = 0
+CAMERA_INDEX = 1  # Set to 0 if this is the default camera
 CASCADE_HAND = 'palm.xml'
 
 # Initialize Flask app
@@ -11,18 +11,26 @@ app = Flask(__name__)
 
 # Initialize camera
 camera = cv2.VideoCapture(CAMERA_INDEX)
+if not camera.isOpened():
+    print("Error: Camera could not be opened.")
+    exit(1)
+
 print('Camera Available')
 
 # Load hand detection classifier
 hand_casc = cv2.CascadeClassifier(CASCADE_HAND)
+if hand_casc.empty():
+    print("Error: Cascade classifier not loaded correctly.")
+    exit(1)
+
 print('Cascade Loaded')
 
 def gen_frames():
     while True:
-        # Capture frame
+        # Capture frame from camera
         ret, frame = camera.read()
         if not ret:
-            print("Failed to capture frame. Check camera and device connection.")
+            print("Error: Failed to capture frame.")
             break
         
         # Draw midline (blue color)
@@ -54,7 +62,7 @@ def gen_frames():
         # Encode the frame as JPEG
         ret, buffer = cv2.imencode('.jpg', frame)
         if not ret:
-            print("Failed to encode frame.")
+            print("Error: Failed to encode frame.")
             break
 
         # Convert the frame to bytes
