@@ -37,9 +37,11 @@ def hand_track():
         elif (midline>(x+w)):
             print("Turnin' Left")
             SERVO_CURRENT-=5
-        ser.write(f"{SERVO_CURRENT}\n".encode())        #This is the line that sends the required position of the servo to the arduino.
+        serial_conn.write(f"{SERVO_CURRENT}\n".encode())        #This is the line that sends the required position of the servo to the arduino.
+    time.sleep(2)                           #Lets give a delay so that the bot can move slowly, and jittering is not present in the servo
+                                            #This was added because I saw this thing snap its neck like from 180 to 0 and it nearly cut the wire to the camera clean off
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     while True:
       hand_track()
     
