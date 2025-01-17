@@ -16,10 +16,12 @@ time.sleep(2)
 print('Vision Initialization Complete')
 
 camera = cv2.VideoCapture(CAMERA_INDEX)
+print('Camera Available')
 #Have to write a script to check and use auxillary/redundant vision or just call out for vision dysfunction
 
 #lets track hands first, easier to move and track probably
 hand_casc = cv2.CascadeClassifier(CASCADE_HAND)
+print('Cascade Loaded')
 #Checks for detection failures must be written, and a plan to reinstall and use/find an alternative must be induced
 
 def hand_track():
