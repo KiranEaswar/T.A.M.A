@@ -1,13 +1,14 @@
 Permission allocation in server       - [x]  done, was quite easy
 Remote Programming of Arduino         - [x]  done, using pyfirmata, might try and solve this again if I have time
 Configuration of the Servo Driver     - []   
-Skills required for Bare Metal Coding of the STM series to reduce unwanted code, to make sure I can remotely program it without any external drivers (I'm not going to use any >:( ) - [x]  done, never knew it was quite easy, but Assembly man jeez
+Skills required for Bare Metal Coding of the STM series to reduce unwanted code, to make sure I can remotely program it without any external drivers (I'm not going to use any >:( ) - [x]  done, never knew it was quite easy, but Assembly kinda hard
 Properly learn ARM Assembly ;_;       - [] 
 UART Comms from one STM to another    - []
 I2C Comms from one STM to another     - []
 SPI Comms from one STM to another     - []
 Loading a file into STM               - []
 PWM Signal Generation in STM          - []
-. . .
+Video stitching using 2 webcams       - [x] Done, but the stream is slow, will update next versions later
+Creation of a server to host the results -[x] Done, took me quite a while to set the entire thing up
 There are an endless amounts of things I have to do for this, but for now this is all I want to try and do, one of them being recording video/audio data as spatial memory data, data fusion, and a bunch of other doohickey stuff
 
